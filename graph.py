@@ -26,7 +26,8 @@
 #
 # Data types
 #   Edge - tuple representing a edge (str, str)
-#   Adj_Mat - adjacency matrix - 2D matrix of equal size   
+#   Adj_Mat - adjacency matrix - 2D matrix of equal size
+#   Adj_List - adjacency list - to be created   
 #
 # Modification Log:
 #    *  9/2/2022 - Completed documentation. S. Sigman 
@@ -93,3 +94,5 @@ class GraphAM:
     # graph, None is returned.
     def outDegree(self, edge :Edge) -> int:
         pass # stub - add the body
+
+# TO DO - Create an adjacency list class, GraphAL
