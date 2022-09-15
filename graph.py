@@ -18,16 +18,17 @@
 #      * GraphAM.getGraph(self) -> Adj_Mat
 #      * GraphAL.getGraph(self) -> Type to be determined.
 #      * addEdges(self, edges :list[Edge]) -> None
-#      * degree(self, edge :Edge) -> int
-#      * inDegree(self, edge :Edge) -> int, not defined for undirected graph
+#      * degree(self, vert :Vertex) -> int
+#      * inDegree(self, vert :Vertex) -> int, not defined for undirected graph
 #           returns None 
-#      * outDegree(self, edge :Edge) -> int, not defined for undirected graph
+#      * outDegree(self, vert Vertex) -> int, not defined for undirected graph
 #           returns None
 #
 # Data types
 #   Edge - tuple representing a edge (str, str)
 #   Adj_Mat - adjacency matrix - 2D matrix of equal size
-#   Adj_List - adjacency list - to be created   
+#   Adj_List - adjacency list - to be created 
+#   Vertex - type of a vertex 
 #
 # Modification Log:
 #    *  9/2/2022 - Completed documentation. S. Sigman 
@@ -36,11 +37,12 @@ import numpy as np
 from nptyping import NDArray, Shape, Integer
 from typing import Any
 
-Edge = tuple[str,str]
+Vertex = str
+Edge = tuple[Vertex,Vertex]
 Adj_Mat = NDArray[Shape['Dim, Dim'], Integer]
 
 class GraphAM:
-    def __init__(self, verts: list[str], edges: list[Edge]=[], *, directed :bool =False, eleType :str ='i') -> None:
+    def __init__(self, verts: list[Vertex], edges: list[Edge]=[], *, directed :bool =False, eleType :str ='i') -> None:
         self.V :list[str] = verts
         self.directed :bool = directed
         self.graph :Adj_Mat = np.zeros((len(verts),len(verts)), dtype=eleType)
@@ -58,7 +60,7 @@ class GraphAM:
 
 
     # Method to return the set of verticies
-    def getV(self) -> list[str]: 
+    def getV(self) -> list[Vertex]: 
         return(self.V)
 
     # Method to return the graph object
@@ -80,19 +82,19 @@ class GraphAM:
 
     # Method to return the degree of an edge.  In a directed
     # graph it returns degree = indegree + outdegree
-    def degree(self, edge : Edge) -> int:
+    def degree(self, vert : Vertex) -> int:
         pass  # stub - add the body
 
     # Method to return the in-degree of a node in a directed
     # graph.  In the case of an undirected graph, None is 
     # returned.
-    def inDegree(self, edge :Edge) -> int:
+    def inDegree(self, vert :Vertex) -> int:
         pass # stub - add the body
 
     # Method to return the out-degree of a node in a 
     # directed graph.  In the case of an undirected
     # graph, None is returned.
-    def outDegree(self, edge :Edge) -> int:
+    def outDegree(self, vertex :Vertex) -> int:
         pass # stub - add the body
 
 # TO DO - Create an adjacency list class, GraphAL
