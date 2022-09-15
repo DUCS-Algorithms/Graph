@@ -31,7 +31,9 @@
 #   Vertex - type of a vertex 
 #
 # Modification Log:
-#    *  9/2/2022 - Completed documentation. S. Sigman 
+#    *  9/02/2022 - Completed documentation. S. Sigman 
+#    *  9/15/2022 - Updated documentation and definitions for degree, indegree,
+#                   and outdegree methods.  S. Sigman
 
 import numpy as np
 from nptyping import NDArray, Shape, Integer
